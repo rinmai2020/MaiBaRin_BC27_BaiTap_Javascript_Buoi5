@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bài Tập 5 - Javascript</title>
+    <title>Bài Tập JS Buổi 5</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
@@ -81,7 +81,7 @@
             type="number"
             placeholder="Nhập số Kw"
           />
-          <button class="btn btn-success d-block mt-3" onclick="tienDien()">
+          <button class="btn btn-success d-block mt-3" onclick="tongTienDien()">
             Tính tiền điện
           </button>
           <p id="result2" class="mt-3" style="display: none"></p>
@@ -107,20 +107,24 @@
             type="number"
             placeholder="Số người phụ thuộc"
           />
-          <button class="btn btn-success d-block mt-3" onclick="incomeTax()">
+          <button class="btn btn-success d-block mt-3" onclick="baiTap3()">
             Tính tiền thuế
           </button>
           <p id="result3" class="mt-3" style="display: none"></p>
 
           <!-- Bài 4: Tính tiền cáp -->
           <h1 class="mt-5 mb-3">Bài 4:</h1>
-          <select id="customerType" class="form-select w-25 d-inline me-2">
+          <select
+            id="loaiKH"
+            class="form-select w-25 d-inline me-2"
+            onchange="onChangeKeNoi()"
+          >
             <option value="">Chọn loại khác hàng</option>
             <option value="nhaDan">Nhà Dân</option>
             <option value="doanhNghiep">Doanh Nghiệp</option>
           </select>
           <input
-            id="maKhachHang"
+            id="maKH"
             class="form-control w-25 d-inline me-2 mt-2"
             type="number"
             placeholder="Nhập mã khác hàng"
@@ -130,6 +134,13 @@
             class="form-control w-25 d-inline me-2 mt-2"
             type="number"
             placeholder="Số kênh cao cấp"
+          />
+          <input
+            id="soKetNoi"
+            class="form-control w-25 me-2 mt-2"
+            style="display: none"
+            type="number"
+            placeholder="Số kết nối "
           />
           <button class="btn btn-success d-block mt-3" onclick="cableMoney()">
             Tính tiền cáp

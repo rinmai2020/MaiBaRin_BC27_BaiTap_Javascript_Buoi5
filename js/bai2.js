@@ -1,77 +1,97 @@
-/**
- * Input: Nhập vào số điện tiêu thụ hàng tháng
- * bac1: 50kw đầu: 500d/kw
- * bac2: 50kw kế: 650d/kw
- * bac3: 100kw kế: 850d/kw
- * bac4: 100kw kế: 1100d/kw
- * bac5: Còn lại: 1200d/kw
- * Output: Hiển thị số tiền cần phải đóng
- */
-
-function tienDien() {
-  var fullName = document.getElementById("fullName").value;
-  var numberKW = +document.getElementById("numberKW").value;
-  var result2 = document.getElementById("result2");
+// function tinhTienDien() {
+//   var fullName = document.getElementById("fullName").value;
+//   var numberKW = +document.getElementById("numberKW").value;
+//   var result2 = document.getElementById("result2");
+//   result2.style.display = "block";
+//   result2.style.background = "light";
+//   var bac1 = 500;
+//   var bac2 = 650;
+//   var bac3 = 850;
+//   var bac5 = 1300;
+//   if (numberKW <= 0) {
+//     alert("Số kw không hợp lệ! Vui lòng nhập lại");
+//     tienDien = "0";
+//   } else if (numberKW <= 50) {
+//     tienDien = (numberKW * bac1).toLocaleString();
+//   } else if (numberKW <= 100) {
+//     tienDien = (50 * bac1 + (numberKW - 50) * bac2).toLocaleString();
+//   } else if (numberKW <= 200) {
+//     tienDien = (
+//       50 * bac1 +
+//       50 * bac2 +
+//       (numberKW - 100) * bac3
+//     ).toLocaleString();
+//   } else if (numberKW <= 350) {
+//     tienDien = (
+//       50 * bac1 +
+//       50 * bac2 +
+//       100 * bac3 +
+//       (numberKW - 200) * bac4
+//     ).toLocaleString();
+//   } else {
+//     tienDien = (
+//       50 * bac1 +
+//       50 * bac2 +
+//       100 * bac3 +
+//       150 * bac4 +
+//       (numberKW - 350) * bac5
+//     ).toLocaleString();
+//   }
+//   result2.innerHTML =
+//     "Họ tên: " + fullName + "; " + " " + "Tiền điện: " + tienDien;
+// }
+function tongTienDien() {
+  var fullName = $("fullName").value;
+  var numberKW = +$("numberKW").value;
+  var tienDien = tinhTienDien(numberKW, 500, 650, 850, 1100, 1300);
+  var result2 = $("result2");
   result2.style.display = "block";
-  result2.style.background = "light";
-  var bac1 = 500;
-  var bac2 = 650;
-  var bac3 = 850;
-  var bac5 = 1300;
+  result2.innerHTML =
+    "Họ tên: " +
+    fullName +
+    "; " +
+    " " +
+    "Tiền điện: " +
+    tienDien.toLocaleString();
+}
+function tinhTienDien(
+  numberKW,
+  kw_50,
+  kw_50_100,
+  kw_100_200,
+  kw_200_350,
+  kw_350
+) {
+  var tienDien = 0;
   if (numberKW <= 0) {
     alert("Số kw không hợp lệ! Vui lòng nhập lại");
-    result2.innerHTML =
-      "Họ tên: " + "; " + " " + fullName + "Tiền điện: " + "0";
   } else if (numberKW <= 50) {
-    result2.innerHTML =
-      "Họ tên: " +
-      fullName +
-      ";" +
-      " " +
-      "Tiền điện: " +
-      (numberKW * bac1).toLocaleString();
+    tienDien = numberKW * kw_50;
   } else if (numberKW <= 100) {
-    result2.innerHTML =
-      "Họ tên: " +
-      fullName +
-      "; " +
-      " " +
-      "Tiền điện: " +
-      (50 * bac1 + (numberKW - 50) * bac2).toLocaleString();
+    tienDien = 50 * kw_50 + (numberKW - 50) * kw_50_100;
   } else if (numberKW <= 200) {
-    result2.innerHTML =
-      "Họ tên: " +
-      fullName +
-      "; " +
-      " " +
-      "Tiền điện: " +
-      (50 * bac1 + 50 * bac2 + (numberKW - 100) * bac3).toLocaleString();
+    tienDien = (
+      50 * kw_50 +
+      50 * kw_50_100 +
+      (numberKW - 100) * kw_100_200
+    ).toLocaleString();
   } else if (numberKW <= 350) {
-    result2.innerHTML =
-      "Họ tên: " +
-      fullName +
-      "; " +
-      " " +
-      "Tiền điện: " +
-      (
-        50 * bac1 +
-        50 * bac2 +
-        100 * bac3 +
-        (numberKW - 200) * bac4
-      ).toLocaleString();
+    tienDien = (
+      50 * kw_50 +
+      50 * kw_50_100 +
+      100 * kw_100_200 +
+      (numberKW - 200) * kw_200_350
+    ).toLocaleString();
   } else {
-    result2.innerHTML =
-      "Họ tên: " +
-      fullName +
-      "; " +
-      " " +
-      "Tiền điện: " +
-      (
-        50 * bac1 +
-        50 * bac2 +
-        100 * bac3 +
-        150 * bac4 +
-        (numberKW - 350) * bac5
-      ).toLocaleString();
+    tienDien =
+      50 * kw_50 +
+      50 * kw_50_100 +
+      100 * kw_100_200 +
+      150 * kw_200_350 +
+      (numberKW - 350) * kw_350;
   }
+  return tienDien;
+}
+function $(x) {
+  return document.getElementById(x);
 }
