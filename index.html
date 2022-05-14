@@ -18,134 +18,103 @@
     />
   </head>
   <body>
-    <div class="container">
+    <div class="container py-5">
       <div class="row">
+        <!-- Bài 1: Quản lý tuyển sinh -->
         <div class="col-md-6">
-          <!-- Bài 1: Quản lý tuyển sinh -->
-          <h1 class="mt-5 mb-3">Bài 1:</h1>
-          <input
-            id="diemChuan"
-            class="form-control w-25 d-inline me-2"
-            type="number"
-            placeholder="Điểm chuẩn"
-          />
-          <select id="khuVuc" class="form-select w-25 d-inline me-2">
-            <option value="">Chọn Khu Vực</option>
-            <option value="2">A</option>
-            <option value="1">B</option>
-            <option value="0.5">C</option>
-          </select>
-          <select id="doiTuong" class="form-select w-25 d-inline me-2">
-            <option value="">Chọn đối Tượng</option>
-            <option value="2.5">1</option>
-            <option value="1.5">2</option>
-            <option value="1">3</option>
-          </select>
-          <input
-            id="mon1"
-            class="form-control w-25 d-inline me-2 mt-2"
-            type="number"
-            placeholder="Điểm môn thứ 1"
-          />
-          <input
-            id="mon2"
-            class="form-control w-25 d-inline me-2 mt-2"
-            type="number"
-            placeholder="Điểm môn thứ 2"
-          />
-          <input
-            id="mon3"
-            class="form-control w-25 d-inline me-2 mt-2"
-            type="number"
-            placeholder="Điểm môn thứ 3"
-          />
-          <button
-            class="btn btn-success d-block mt-3"
-            onclick="addmissionManager()"
-          >
-            Kết Quả
-          </button>
-          <p id="result" class="mt-3" style="display: none"></p>
-
-          <!-- Bài 2: Tính tiền điện -->
-          <h1 class="mt-5 mb-3">Bài 2:</h1>
-          <input
-            id="fullName"
-            class="form-control w-25 d-inline me-2 mt-2"
-            type="text"
-            placeholder="Nhập họ tên"
-          />
-          <input
-            id="numberKW"
-            class="form-control w-25 d-inline me-2 mt-2"
-            type="number"
-            placeholder="Nhập số Kw"
-          />
-          <button class="btn btn-success d-block mt-3" onclick="tongTienDien()">
-            Tính tiền điện
-          </button>
-          <p id="result2" class="mt-3" style="display: none"></p>
+          <div class="card" style="background-color: azure">
+            <div class="card-body">
+              <h1 class="mb-5">Bài 1:</h1>
+              <div class="row">
+                <div class="col-md-4 mb-3">
+                  <input
+                    id="diemChuan"
+                    class="form-control"
+                    type="number"
+                    placeholder="Điểm chuẩn"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <select id="khuVuc" class="form-select">
+                    <option value="">Chọn Khu Vực</option>
+                    <option value="2">A</option>
+                    <option value="1">B</option>
+                    <option value="0.5">C</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <select id="doiTuong" class="form-select">
+                    <option value="">Chọn đối Tượng</option>
+                    <option value="2.5">1</option>
+                    <option value="1.5">2</option>
+                    <option value="1">3</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <input
+                    id="mon1"
+                    class="form-control"
+                    type="number"
+                    placeholder="Điểm môn thứ 1"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <input
+                    id="mon2"
+                    class="form-control"
+                    type="number"
+                    placeholder="Điểm môn thứ 2"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <input
+                    id="mon3"
+                    class="form-control"
+                    type="number"
+                    placeholder="Điểm môn thứ 3"
+                  />
+                </div>
+                <div class="col-md-12 mt-4">
+                  <button
+                    class="btn btn-info d-block w-25"
+                    onclick="addmissionManager()"
+                  >
+                    Kết Quả
+                  </button>
+                  <p id="result" class="mt-3 bg-info" style="display: none"></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <!-- Bài 2: Tính tiền điện -->
         <div class="col-md-6">
-          <!-- Bài 3: Tính thuế thu nhập cá nhân -->
-          <h1 class="mt-5 mb-3">Bài 3:</h1>
-          <input
-            id="fullName2"
-            class="form-control w-25 d-inline me-2 mt-2"
-            type="text"
-            placeholder="Nhập họ tên"
-          />
-          <input
-            id="tongThuNhapNam"
-            class="form-control w-25 d-inline me-2 mt-2"
-            type="number"
-            placeholder="Tổng thụ nhập năm"
-          />
-          <input
-            id="nguoiPhuThuoc"
-            class="form-control w-25 d-inline me-2 mt-2"
-            type="number"
-            placeholder="Số người phụ thuộc"
-          />
-          <button class="btn btn-success d-block mt-3" onclick="baiTap3()">
-            Tính tiền thuế
-          </button>
-          <p id="result3" class="mt-3" style="display: none"></p>
-
-          <!-- Bài 4: Tính tiền cáp -->
-          <h1 class="mt-5 mb-3">Bài 4:</h1>
-          <select
-            id="loaiKH"
-            class="form-select w-25 d-inline me-2"
-            onchange="onChangeKeNoi()"
-          >
-            <option value="">Chọn loại khác hàng</option>
-            <option value="nhaDan">Nhà Dân</option>
-            <option value="doanhNghiep">Doanh Nghiệp</option>
-          </select>
-          <input
-            id="maKH"
-            class="form-control w-25 d-inline me-2 mt-2"
-            type="number"
-            placeholder="Nhập mã khác hàng"
-          />
-          <input
-            id="kenh"
-            class="form-control w-25 d-inline me-2 mt-2"
-            type="number"
-            placeholder="Số kênh cao cấp"
-          />
-          <input
-            id="soKetNoi"
-            class="form-control w-25 me-2 mt-2"
-            style="display: none"
-            type="number"
-            placeholder="Số kết nối "
-          />
-          <button class="btn btn-success d-block mt-3" onclick="cableMoney()">
-            Tính tiền cáp
-          </button>
-          <p id="result4" class="mt-3" style="display: none"></p>
+          <div class="card" style="background-color: azure">
+            <div class="card-body">
+              <h1 class="mb-5">Bài 2:</h1>
+              <input
+                id="fullName"
+                class="form-control my-3"
+                type="text"
+                placeholder="Nhập họ tên"
+              />
+              <input
+                id="numberKW"
+                class="form-control"
+                type="number"
+                placeholder="Nhập số Kw"
+              />
+              <div class="col-md-12 mt-4">
+                <button
+                  class="btn btn-info d-block w-25"
+                  onclick="tongTienDien()"
+                >
+                  Tính tiền điện
+                </button>
+                <p id="result2" class="mt-3 bg-info" style="display: none"></p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -164,7 +133,5 @@
     <!-- Link javascript -->
     <script src="./js/bai1.js"></script>
     <script src="./js/bai2.js"></script>
-    <script src="./js/bai3.js"></script>
-    <script src="./js/bai4.js"></script>
   </body>
 </html>

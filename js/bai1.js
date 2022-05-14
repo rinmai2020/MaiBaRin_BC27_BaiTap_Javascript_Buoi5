@@ -64,11 +64,12 @@ function tongDiem3Mon(mon1, mon2, mon3) {
 function hienThiKetQua(mon1, mon2, mon3, diemChuan, diemTongKet) {
   var result = $("result");
   result.style.display = "block";
+
   if (!mon1 || !mon2 || !mon3) {
     result.style.color = "red";
     result.innerHTML = " Bạn bị rớt vì 1 môn có điểm 0";
   } else if (diemTongKet >= diemChuan) {
-    result.style.color = "green";
+    result.style.color = "white";
     result.innerHTML = `Bạn đã đậu; Tổng điểm: ${diemTongKet}`;
   } else {
     result.style.color = "red";
